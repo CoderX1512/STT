@@ -45,8 +45,8 @@ while (1):
             SpeakText(MyText)
             li.root.mainloop()
 
-            if MyText == "stop": #added this part to break out of the loop
-                break
+            if 'stop' in MyText: #added this part to break out of the loop
+                exit()
 
     except sr.RequestError as e:
         print("Could not request results; {0}".format(e))
