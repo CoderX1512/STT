@@ -4,6 +4,9 @@ import speech_recognition as sr
 import pyttsx3
 import pyaudio
 import light as li
+from tkinter import *
+from tkinter import messagebox
+
 # Initialize the recognizer
 r = sr.Recognizer()
 
@@ -44,6 +47,13 @@ while (1):
             print("Did you say '" + MyText +"'")
             SpeakText(MyText)
             li.root.mainloop()
+            
+            #sends a notification to the driver
+            top = Tk()
+            top.withdraw()     #Removes the tkinter's extra window
+            top.geometry("100x100")
+            messagebox.showinfo("Alert!!",MyText)
+            top.mainloop()
 
             if 'stop' in MyText: #added this part to break out of the loop
                 exit()
